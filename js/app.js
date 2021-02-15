@@ -1,7 +1,8 @@
-
+'use strict';
 function getRandomNo(min, max) {
   return Math.floor((Math.random() * (max - min + 1)) + min);
 }
+const timeArr= ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
 const seattle = {
   location: 'Seattle',
   min: 23,
@@ -9,9 +10,8 @@ const seattle = {
   avgCookie: 6.3,
   cookiePurArray: [],
   sum: 0,
-  timeArr: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'],
   getCookiePerCust: function () {
-    for (let i = 0; i < (this.timeArr.length - 1); i++) {
+    for (let i = 0; i < (timeArr.length - 1); i++) {
       this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
       this.sum += this.cookiePurArray[i];
     }
@@ -28,10 +28,10 @@ const seattle = {
     h2El.textContent = this.location;
     let ulEl = document.createElement('ul');
     articleEl.appendChild(ulEl);
-    for (let i = 0; i < this.timeArr.length; i++) {
+    for (let i = 0; i < timeArr.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${this.timeArr[i]}:${this.cookiePurArray[i]}`;
+      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
     }
   }
 };
@@ -44,9 +44,8 @@ const tokyo = {
   avgCookie: 1.2,
   cookiePurArray: [],
   sum: 0,
-  timeArr: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'],
   getCookiePerCust: function () {
-    for (let i = 0; i < (this.timeArr.length - 1); i++) {
+    for (let i = 0; i < (timeArr.length - 1); i++) {
       this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
       this.sum += this.cookiePurArray[i];
     }
@@ -63,10 +62,10 @@ const tokyo = {
     h2El.textContent = this.location;
     let ulEl = document.createElement('ul');
     articleEl.appendChild(ulEl);
-    for (let i = 0; i < this.timeArr.length; i++) {
+    for (let i = 0; i < timeArr.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${this.timeArr[i]}:${this.cookiePurArray[i]}`;
+      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
     }
   }
 };
@@ -79,9 +78,8 @@ const dubai = {
   avgCookie: 3.7,
   cookiePurArray: [],
   sum: 0,
-  timeArr: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'],
   getCookiePerCust: function () {
-    for (let i = 0; i < (this.timeArr.length - 1); i++) {
+    for (let i = 0; i < (timeArr.length - 1); i++) {
       this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
       this.sum += this.cookiePurArray[i];
     }
@@ -98,10 +96,10 @@ const dubai = {
     h2El.textContent = this.location;
     let ulEl = document.createElement('ul');
     articleEl.appendChild(ulEl);
-    for (let i = 0; i < this.timeArr.length; i++) {
+    for (let i = 0; i < timeArr.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${this.timeArr[i]}:${this.cookiePurArray[i]}`;
+      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
     }
   }
 };
@@ -114,9 +112,8 @@ const paris = {
   avgCookie: 2.3,
   cookiePurArray: [],
   sum: 0,
-  timeArr: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'],
   getCookiePerCust: function () {
-    for (let i = 0; i < (this.timeArr.length - 1); i++) {
+    for (let i = 0; i < (timeArr.length - 1); i++) {
       this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
       this.sum += this.cookiePurArray[i];
     }
@@ -133,10 +130,10 @@ const paris = {
     h2El.textContent = this.location;
     let ulEl = document.createElement('ul');
     articleEl.appendChild(ulEl);
-    for (let i = 0; i < this.timeArr.length; i++) {
+    for (let i = 0; i < timeArr.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${this.timeArr[i]}:${this.cookiePurArray[i]}`;
+      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
     }
   }
 };
@@ -149,9 +146,8 @@ const lima = {
   avgCookie: 4.6,
   cookiePurArray: [],
   sum: 0,
-  timeArr: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'],
   getCookiePerCust: function () {
-    for (let i = 0; i < (this.timeArr.length - 1); i++) {
+    for (let i = 0; i < (timeArr.length - 1); i++) {
       this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
       this.sum += this.cookiePurArray[i];
     }
@@ -168,10 +164,10 @@ const lima = {
     h2El.textContent = this.location;
     let ulEl = document.createElement('ul');
     articleEl.appendChild(ulEl);
-    for (let i = 0; i < this.timeArr.length; i++) {
+    for (let i = 0; i < timeArr.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${this.timeArr[i]}:${this.cookiePurArray[i]}`;
+      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
     }
   }
 };
