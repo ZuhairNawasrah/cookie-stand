@@ -1,174 +1,71 @@
 'use strict';
+//----------------------------------------------headerRow-------------------------------------------------//
+const totOfTot = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 function getRandomNo(min, max) {
   return Math.floor((Math.random() * (max - min + 1)) + min);
 }
-const timeArr= ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
-const seattle = {
-  location: 'Seattle',
-  min: 23,
-  max: 65,
-  avgCookie: 6.3,
-  cookiePurArray: [],
-  sum: 0,
-  getCookiePerCust: function () {
+const timeArr = ['Location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+const divEl = document.getElementById('cookieStand');
+const tableEl = document.createElement('table');
+divEl.appendChild(tableEl);
+const headRowEl = document.createElement('tr');
+tableEl.appendChild(headRowEl);
+for (let i = 0; i < timeArr.length; i++) {
+  const headCellEl = document.createElement('th');
+  headRowEl.appendChild(headCellEl);
+  headCellEl.textContent = timeArr[i];
+}
+//-----------------------------------------constructorFunction--------------------------------------------//
+function Fish(location, min, max, avgCookie, cookiePurArray, total) {
+  this.location = location;
+  this.min = min;
+  this.max = max;
+  this.avgCookie = avgCookie;
+  this.cookiePurArray = cookiePurArray;
+  this.total = total;
+  Fish.prototype.getCookiePerCust = function () {
     for (let i = 0; i < (timeArr.length - 1); i++) {
       this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
-      this.sum += this.cookiePurArray[i];
+      this.total += this.cookiePurArray[i];
     }
-    this.cookiePurArray[14] = this.sum;
+    this.cookiePurArray[14] = this.total;
   },
-  render: function () {
+  //-----------------------------------------prototypeRender---------------------------------------------//
+  Fish.prototype.render = function () {
     this.getCookiePerCust();
-    const division = document.getElementById('cookieStand');
-    console.log(division);
-    const articleEl = document.createElement('article');
-    division.appendChild(articleEl);
-    const h2El = document.createElement('h2');
-    articleEl.appendChild(h2El);
-    h2El.textContent = this.location;
-    let ulEl = document.createElement('ul');
-    articleEl.appendChild(ulEl);
-    for (let i = 0; i < timeArr.length; i++) {
-      let liEl = document.createElement('li');
-      ulEl.appendChild(liEl);
-      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
+    const dataRowEl = document.createElement('tr');
+    tableEl.appendChild(dataRowEl);
+    const dataCellEl = document.createElement('td');
+    dataRowEl.appendChild(dataCellEl);
+    dataCellEl.textContent = this.location;
+    for (let i = 0; i < this.cookiePurArray.length; i++) {
+      const dataCellEl = document.createElement('td');
+      dataRowEl.appendChild(dataCellEl);
+      dataCellEl.textContent = this.cookiePurArray[i];
+      totOfTot[i]+=this.cookiePurArray[i];
     }
-  }
-};
+  };
+}
+//--------------------------------------invokingConstructorFunction--------------------------------------//
+const seattle = new Fish('Seattle',23,65,6.3,[],0);
+const tokyo = new Fish('Tokyo',3,24,1.2,[],0);
+const dubai = new Fish('Dubai',11,38,3.7,[],0);
+const paris = new Fish('Paris',20,38,2.3,[],0);
+const lima = new Fish('Lima',2,16,4.6,[],0);
+
 seattle.render();
-
-const tokyo = {
-  location: 'Tokyo',
-  min: 3,
-  max: 24,
-  avgCookie: 1.2,
-  cookiePurArray: [],
-  sum: 0,
-  getCookiePerCust: function () {
-    for (let i = 0; i < (timeArr.length - 1); i++) {
-      this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
-      this.sum += this.cookiePurArray[i];
-    }
-    this.cookiePurArray[14] = this.sum;
-  },
-  render: function () {
-    this.getCookiePerCust();
-    const division = document.getElementById('cookieStand');
-    console.log(division);
-    const articleEl = document.createElement('article');
-    division.appendChild(articleEl);
-    const h2El = document.createElement('h2');
-    articleEl.appendChild(h2El);
-    h2El.textContent = this.location;
-    let ulEl = document.createElement('ul');
-    articleEl.appendChild(ulEl);
-    for (let i = 0; i < timeArr.length; i++) {
-      let liEl = document.createElement('li');
-      ulEl.appendChild(liEl);
-      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
-    }
-  }
-};
 tokyo.render();
-
-const dubai = {
-  location: 'Dubai',
-  min: 11,
-  max: 38,
-  avgCookie: 3.7,
-  cookiePurArray: [],
-  sum: 0,
-  getCookiePerCust: function () {
-    for (let i = 0; i < (timeArr.length - 1); i++) {
-      this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
-      this.sum += this.cookiePurArray[i];
-    }
-    this.cookiePurArray[14] = this.sum;
-  },
-  render: function () {
-    this.getCookiePerCust();
-    const division = document.getElementById('cookieStand');
-    console.log(division);
-    const articleEl = document.createElement('article');
-    division.appendChild(articleEl);
-    const h2El = document.createElement('h2');
-    articleEl.appendChild(h2El);
-    h2El.textContent = this.location;
-    let ulEl = document.createElement('ul');
-    articleEl.appendChild(ulEl);
-    for (let i = 0; i < timeArr.length; i++) {
-      let liEl = document.createElement('li');
-      ulEl.appendChild(liEl);
-      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
-    }
-  }
-};
 dubai.render();
-
-const paris = {
-  location: 'Paris',
-  min: 20,
-  max: 38,
-  avgCookie: 2.3,
-  cookiePurArray: [],
-  sum: 0,
-  getCookiePerCust: function () {
-    for (let i = 0; i < (timeArr.length - 1); i++) {
-      this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
-      this.sum += this.cookiePurArray[i];
-    }
-    this.cookiePurArray[14] = this.sum;
-  },
-  render: function () {
-    this.getCookiePerCust();
-    const division = document.getElementById('cookieStand');
-    console.log(division);
-    const articleEl = document.createElement('article');
-    division.appendChild(articleEl);
-    const h2El = document.createElement('h2');
-    articleEl.appendChild(h2El);
-    h2El.textContent = this.location;
-    let ulEl = document.createElement('ul');
-    articleEl.appendChild(ulEl);
-    for (let i = 0; i < timeArr.length; i++) {
-      let liEl = document.createElement('li');
-      ulEl.appendChild(liEl);
-      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
-    }
-  }
-};
 paris.render();
-
-const lima = {
-  location: 'Lima',
-  min: 2,
-  max: 16,
-  avgCookie: 4.6,
-  cookiePurArray: [],
-  sum: 0,
-  getCookiePerCust: function () {
-    for (let i = 0; i < (timeArr.length - 1); i++) {
-      this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
-      this.sum += this.cookiePurArray[i];
-    }
-    this.cookiePurArray[14] = this.sum;
-  },
-  render: function () {
-    this.getCookiePerCust();
-    const division = document.getElementById('cookieStand');
-    console.log(division);
-    const articleEl = document.createElement('article');
-    division.appendChild(articleEl);
-    const h2El = document.createElement('h2');
-    articleEl.appendChild(h2El);
-    h2El.textContent = this.location;
-    let ulEl = document.createElement('ul');
-    articleEl.appendChild(ulEl);
-    for (let i = 0; i < timeArr.length; i++) {
-      let liEl = document.createElement('li');
-      ulEl.appendChild(liEl);
-      liEl.textContent = `${timeArr[i]}:${this.cookiePurArray[i]}`;
-    }
-  }
-};
 lima.render();
+//----------------------------------------------footerRow-----------------------------------------------//
+const footRowEl = document.createElement('tr');
+tableEl.appendChild(footRowEl);
+const footCellEl = document.createElement('th');
+footRowEl.appendChild(footCellEl);
+footCellEl.textContent = 'Totals';
+for (let i = 0; i < totOfTot.length; i++) {
+  const footCellEl = document.createElement('th');
+  footRowEl.appendChild(footCellEl);
+  footCellEl.textContent = totOfTot[i];
+}
