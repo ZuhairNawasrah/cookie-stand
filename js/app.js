@@ -18,6 +18,7 @@ const seattle = {
     this.cookiePurArray[14] = this.sum;
   },
   render: function () {
+    this.getCookiePerCust();
     const division = document.getElementById('cookieStand');
     console.log(division);
     const articleEl = document.createElement('article');
@@ -34,7 +35,6 @@ const seattle = {
     }
   }
 };
-seattle.getCookiePerCust();
 seattle.render();
 
 const tokyo = {
@@ -53,6 +53,7 @@ const tokyo = {
     this.cookiePurArray[14] = this.sum;
   },
   render: function () {
+    this.getCookiePerCust();
     const division = document.getElementById('cookieStand');
     console.log(division);
     const articleEl = document.createElement('article');
@@ -69,7 +70,6 @@ const tokyo = {
     }
   }
 };
-tokyo.getCookiePerCust();
 tokyo.render();
 
 const dubai = {
@@ -88,6 +88,7 @@ const dubai = {
     this.cookiePurArray[14] = this.sum;
   },
   render: function () {
+    this.getCookiePerCust();
     const division = document.getElementById('cookieStand');
     console.log(division);
     const articleEl = document.createElement('article');
@@ -104,7 +105,6 @@ const dubai = {
     }
   }
 };
-dubai.getCookiePerCust();
 dubai.render();
 
 const paris = {
@@ -123,6 +123,7 @@ const paris = {
     this.cookiePurArray[14] = this.sum;
   },
   render: function () {
+    this.getCookiePerCust();
     const division = document.getElementById('cookieStand');
     console.log(division);
     const articleEl = document.createElement('article');
@@ -139,7 +140,6 @@ const paris = {
     }
   }
 };
-paris.getCookiePerCust();
 paris.render();
 
 const lima = {
@@ -158,6 +158,7 @@ const lima = {
     this.cookiePurArray[14] = this.sum;
   },
   render: function () {
+    this.getCookiePerCust();
     const division = document.getElementById('cookieStand');
     console.log(division);
     const articleEl = document.createElement('article');
@@ -174,5 +175,4 @@ const lima = {
     }
   }
 };
-lima.getCookiePerCust();
 lima.render();
