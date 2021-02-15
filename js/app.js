@@ -2,7 +2,7 @@
 function getRandomNo(min, max) {
   return Math.floor((Math.random() * (max - min + 1)) + min);
 }
-const Seattle = {
+const seattle = {
   location: 'Seattle',
   min: 23,
   max: 65,
@@ -34,10 +34,10 @@ const Seattle = {
     }
   }
 };
-Seattle.getCookiePerCust();
-Seattle.render();
+seattle.getCookiePerCust();
+seattle.render();
 
-const Tokyo = {
+const tokyo = {
   location: 'Tokyo',
   min: 3,
   max: 24,
@@ -69,10 +69,10 @@ const Tokyo = {
     }
   }
 };
-Tokyo.getCookiePerCust();
-Tokyo.render();
+tokyo.getCookiePerCust();
+tokyo.render();
 
-const Dubai = {
+const dubai = {
   location: 'Dubai',
   min: 11,
   max: 38,
@@ -104,10 +104,10 @@ const Dubai = {
     }
   }
 };
-Dubai.getCookiePerCust();
-Dubai.render();
+dubai.getCookiePerCust();
+dubai.render();
 
-const Paris = {
+const paris = {
   location: 'Paris',
   min: 20,
   max: 38,
@@ -139,10 +139,10 @@ const Paris = {
     }
   }
 };
-Paris.getCookiePerCust();
-Paris.render();
+paris.getCookiePerCust();
+paris.render();
 
-const Lima = {
+const lima = {
   location: 'Lima',
   min: 2,
   max: 16,
@@ -174,5 +174,5 @@ const Lima = {
     }
   }
 };
-Lima.getCookiePerCust();
-Lima.render();
+lima.getCookiePerCust();
+lima.render();
