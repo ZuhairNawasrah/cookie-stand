@@ -27,7 +27,7 @@ function Fish(location, min, max, avgCookie, cookiePurArray, total) {
   this.cookiePurArray = cookiePurArray;
   this.total = total;
   Fish.prototype.getCookiePerCust = function () {
-    for (let i = 0; i < (timeArr.length - 1); i++) {
+    for (let i = 0; i < (timeArr.length - 2); i++) {
       this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
       this.total += this.cookiePurArray[i];
     }
