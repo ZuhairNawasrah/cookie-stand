@@ -1,7 +1,7 @@
 'use strict';
 //----------------------------------------------headerRow-------------------------------------------------//
 const totOfTot = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-const timeArr = ['Location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+const headRow = ['Location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
 const divEl = document.getElementById('cookieStand');
 const tableEl = document.createElement('table');
 divEl.appendChild(tableEl);
@@ -12,10 +12,10 @@ function getRandomNo(min, max) {
 function headerRow() {
   const headRowEl = document.createElement('tr');
   tableEl.appendChild(headRowEl);
-  for (let i = 0; i < timeArr.length; i++) {
+  for (let i = 0; i < headRow.length; i++) {
     const headCellEl = document.createElement('th');
     headRowEl.appendChild(headCellEl);
-    headCellEl.textContent = timeArr[i];
+    headCellEl.textContent = headRow[i];
   }
 }
 //-----------------------------------------constructorFunction--------------------------------------------//
@@ -27,7 +27,7 @@ function Fish(location, min, max, avgCookie, cookiePurArray, total) {
   this.cookiePurArray = cookiePurArray;
   this.total = total;
   Fish.prototype.getCookiePerCust = function () {
-    for (let i = 0; i < (timeArr.length - 2); i++) {
+    for (let i = 0; i < (headRow.length - 2); i++) {
       this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
       this.total += this.cookiePurArray[i];
     }
