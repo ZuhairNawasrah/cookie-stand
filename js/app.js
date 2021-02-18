@@ -28,7 +28,7 @@ function Fish(location, min, max, avgCookie) {
   this.total = 0;
 } Fish.prototype.getCookiePerCust = function () {
   for (let i = 0; i < (headRow.length - 2); i++) {
-    this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
+    this.cookiePurArray.push(Math.floor(getRandomNo(this.min, this.max) * this.avgCookie));
     this.total += this.cookiePurArray[i];
   }
   this.cookiePurArray[14] = this.total;
@@ -85,8 +85,8 @@ branch.addEventListener('submit', function (event) {
   const max = parseInt(event.target.max.value);
   const avg = parseInt(event.target.avg.value);
   const shop = new Fish(locationName, min, max, avg);
+  tableEl.deleteRow(-1);
   shop.render();
   footerRow();
   branch.reset();
 });
-
