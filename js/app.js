@@ -19,42 +19,42 @@ function headerRow() {
   }
 }
 //-----------------------------------------constructorFunction--------------------------------------------//
-function Fish(location, min, max, avgCookie, cookiePurArray, total) {
+function Fish(location, min, max, avgCookie) {
   this.location = location;
   this.min = min;
   this.max = max;
   this.avgCookie = avgCookie;
-  this.cookiePurArray = cookiePurArray;
-  this.total = total;
-  Fish.prototype.getCookiePerCust = function () {
-    for (let i = 0; i < (headRow.length - 2); i++) {
-      this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
-      this.total += this.cookiePurArray[i];
-    }
-    this.cookiePurArray[14] = this.total;
-  },
-  //-----------------------------------------prototypeRender---------------------------------------------//
-  Fish.prototype.render = function () {
-    this.getCookiePerCust();
-    const dataRowEl = document.createElement('tr');
-    tableEl.appendChild(dataRowEl);
+  this.cookiePurArray = [];
+  this.total = 0;
+} Fish.prototype.getCookiePerCust = function () {
+  for (let i = 0; i < (headRow.length - 2); i++) {
+    this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
+    this.total += this.cookiePurArray[i];
+  }
+  this.cookiePurArray[14] = this.total;
+};
+//-----------------------------------------prototypeRender---------------------------------------------//
+Fish.prototype.render = function () {
+  this.getCookiePerCust();
+  const dataRowEl = document.createElement('tr');
+  tableEl.appendChild(dataRowEl);
+  const dataCellEl = document.createElement('td');
+  dataRowEl.appendChild(dataCellEl);
+  dataCellEl.textContent = this.location;
+  for (let i = 0; i < this.cookiePurArray.length; i++) {
     const dataCellEl = document.createElement('td');
     dataRowEl.appendChild(dataCellEl);
-    dataCellEl.textContent = this.location;
-    for (let i = 0; i < this.cookiePurArray.length; i++) {
-      const dataCellEl = document.createElement('td');
-      dataRowEl.appendChild(dataCellEl);
-      dataCellEl.textContent = this.cookiePurArray[i];
-      totOfTot[i] += this.cookiePurArray[i];
-    }
-  };
-}
+    dataCellEl.textContent = this.cookiePurArray[i];
+    totOfTot[i] += this.cookiePurArray[i];
+  }
+};
+
 //--------------------------------------invokingConstructorFunction--------------------------------------//
-const seattle = new Fish('Seattle', 23, 65, 6.3, [], 0);
-const tokyo = new Fish('Tokyo', 3, 24, 1.2, [], 0);
-const dubai = new Fish('Dubai', 11, 38, 3.7, [], 0);
-const paris = new Fish('Paris', 20, 38, 2.3, [], 0);
-const lima = new Fish('Lima', 2, 16, 4.6, [], 0);
+const seattle = new Fish('Seattle', 23, 65, 6.3);
+const tokyo = new Fish('Tokyo', 3, 24, 1.2);
+const dubai = new Fish('Dubai', 11, 38, 3.7);
+const paris = new Fish('Paris', 20, 38, 2.3);
+const lima = new Fish('Lima', 2, 16, 4.6);
 
 headerRow();
 seattle.render();
@@ -76,3 +76,17 @@ function footerRow() {
     footCellEl.textContent = totOfTot[i];
   }
 }
+//----------------------------------------------newBranch----------------------------------------------//
+const branch = document.getElementById('fish');
+branch.addEventListener('submit', function (event) {
+  event.preventDefault();
+  const locationName = event.target.locaName.value;
+  const min = parseInt(event.target.min.value);
+  const max = parseInt(event.target.max.value);
+  const avg = parseInt(event.target.avg.value);
+  const shop = new Fish(locationName, min, max, avg);
+  shop.render();
+  footerRow();
+  branch.reset();
+});
+
