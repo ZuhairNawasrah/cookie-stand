@@ -48,7 +48,6 @@ Fish.prototype.render = function () {
     totOfTot[i] += this.cookiePurArray[i];
   }
 };
-
 //--------------------------------------invokingConstructorFunction--------------------------------------//
 const seattle = new Fish('Seattle', 23, 65, 6.3);
 const tokyo = new Fish('Tokyo', 3, 24, 1.2);
