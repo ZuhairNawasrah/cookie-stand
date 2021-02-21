@@ -24,15 +24,15 @@ h1 {
   padding: 40px;
 }
 article .pat {
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   border: solid 1px;
   border-radius: 10px;
 }
 main p {
   text-align: center;
   padding-left: 25%;
-  padding-top: 20px;
+  padding-top: 40px;
   height: auto;
   width: 75%;
   font-size: 20px;
@@ -68,7 +68,7 @@ table {
   
   position: absolute;
   top: 180px;
-  left: 700px;
+  left: 715px;
   align-items: center;
 }
 b {
@@ -128,4 +128,17 @@ input {
   color:#f16971;
   font-family: 'Yellowtail', cursive;;
 }
-
+ article h2{
+   padding-top: 300px;
+  clear:both;
+  text-align:right;
+  padding-right: 30px;
+  font-weight: bold;
+  font-size: 20px;
+}
+article p{
+  padding-right: 30px;
+  text-align:right;
+  padding-top:5px;
+  width:100%;
+}
