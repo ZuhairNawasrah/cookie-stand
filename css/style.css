@@ -104,7 +104,7 @@ td:first-child:hover,tr:first-child th:hover,tr:last-child th:first-child:hover{
   background-color: #fae7e3;
   color: #f16971;
 }
-td:hover,tr:last-child th:hover{
+td:hover,tr:last-child th:hover, input[type="submit"]:hover{
   background-color: #f16971;
   color: #fae7e3;
 }
