@@ -142,3 +142,11 @@ article p{
   padding-top:5px;
   width:100%;
 }
+#body {
+  background-color: lightpink;
+  background-image: url(../Images/indexBackground.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
