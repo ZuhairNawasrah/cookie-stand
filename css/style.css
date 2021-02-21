@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family:'Yellowtail', cursive;
+  font-family: cursive, sans-serif;
   color: #f16971;
   margin: 0;
   text-align: center;
@@ -12,6 +12,9 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+}
+#body{
+  font-family:'Yellowtail', cursive;
 }
 header nav ul li {
   padding: 20px;
